@@ -1,0 +1,85 @@
+<!--index.wxml-->
+<view class='page-body'>
+  <view class="page-section">
+
+    <!-- 每日目标动态，hidden="{{inputShowed}}是用来控制点击搜索取消掉显示box -->
+    <view class='page-content'>
+      <view class='dynamic-box' wx:for="{{targetItems}}" wx:for-index='itemIdx' wx:key="*item">
+      
+        <view class='news-box' bindtap='openSpecifics' data-items='{{item}}' hover-class='weui-cell_active'>
+          <view class='news-box_l'>
+           <image src="{{item.user_icon}}" style="width: 40px; height: 40px; display: block;" />
+          </view>
+          <view class='news-box_r'>
+            <!-- 昵称 -->
+            <view class="news-box_nickName">{{item.user_name}}</view>
+            <!-- 目标标题 -->
+            <view class='goal_title' catchtap='openGoalDetails' hover-class='none'>
+                {{item.target.target_name}}
+            </view>
+            <!-- 文字 -->
+            <view class='news-box_text'>
+              {{item.target_content}}
+            </view>
+            <!-- 图片 -->
+            <view class='news-box_image'>
+              <block wx:for="{{item.pictures}}" wx:for-item="image" wx:for-index='imgIdx' wx:key="*item">
+                <view class="grid">
+                  <image class="icon" catchtap='previewImage' mode="aspectFill" src="{{image.picture_url}}" data-img-index="{{imgIdx}}" data-imgs="{{item.pictures}}" />
+                </view>
+              </block>
+            </view>
+            <!-- 时间 -->
+            <view class='news-box_time'>
+              <view>{{item.create_time}}</view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 围观、点赞和评论 -->
+        <view class='interactive-box'>
+          <view class='follow'>
+            <image src="{{'/images/follow.png'}}" style="vertical-align: middle;width:17px; height: 17px;" wx:if="{{false}}"></image>
+            <image src="{{'/images/follow_fill.png'}}" style="vertical-align: middle;width:17px; height: 17px;" wx:else></image>
+            50
+          </view>
+          <view class='likes'>
+            <image src="{{'/images/praise_fill.png'}}" style="vertical-align: middle;width:17px; height: 17px;" catchtap="toLike"wx:if="{{item.like_status == 1}}"  data-like="0" data-like-id="{{item.like_id}}" data-item-id="{{item.target_item_id}}"></image>
+            <image src="{{'/images/praise.png'}}" style="vertical-align: middle;width:17px; height: 17px;" catchtap="toLike"  wx:else   data-like="1" data-like-id=" " data-item-id="{{item.target_item_id}}"></image>
+            {{item.like_number}}
+          </view>
+          <view class='comment'>
+            <image src="{{'/images/message.png'}}" style="vertical-align: middle;width:17px; height: 17px;"></image>
+            30
+          </view>
+        </view>
+
+      </view>
+
+      <!-- 悬浮定目标按钮 -->
+      <navigator class="set_button" url='../set/set'>
+        <image class="set_image" src="/images/set.png"></image>
+      </navigator>
+    </view>
+
+
+
+
+    <!-- 悬浮搜索框 -->
+    <view class="page_search">
+      <view class="weui-search-bar">
+        <navigator url='../search/search' class="weui-search-bar__form" hover-class="none">
+          <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="search" class="weui-search-bar__input" />
+          </view>
+          <label class="weui-search-bar__label">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <view class="weui-search-bar__input">搜索</view>
+          </label>
+        </navigator>
+      </view>
+    </view>
+
+  </view>
+</view>

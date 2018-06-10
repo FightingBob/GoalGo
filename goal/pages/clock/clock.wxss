@@ -1,0 +1,32 @@
+/* pages/clock/clock.wxss */
+Page {
+  background-color: #f8f8f8;
+  height: 100%;
+}
+
+.clock-btn {
+  display: block;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  border: 0px;
+  height: 120rpx;
+}
+
+.clock_image {
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.clock-textarea {
+  display: block;
+  width: 89%;
+}
+
+.uploader-box {
+  height: auto;
+  width: auto;
+  position: relative;
+  overflow: hidden;
+  margin-top: 15rpx;
+}

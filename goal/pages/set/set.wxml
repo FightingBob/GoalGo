@@ -1,0 +1,116 @@
+<view class='page-body'>
+
+  <view class="page-section">
+    <form bindsubmit='formSubmit' bindreset='formReset'>
+      <!-- 定下目标名称 -->
+      <view class="weui-cells__title">填写目标名称</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd">
+            <input class="weui-input" type='text' value='{{target_name}}' maxlength='12' bindinput='verification' name='target_name' placeholder="输入你的目标或计划"/>
+          </view>
+        </view>
+      </view>
+
+      <!-- 设置天数 -->
+      <view class="weui-cells__title">设置天数</view>
+      <view class="weui-cells weui-cells_after-title">
+
+        <view class="weui-cell">
+          <view class="weui-cell__hd">
+            <image src="{{'/images/setDay_logo.png'}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">目标完成天数</view>
+          <view class="weui-cell__ft">至少一天以上</view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd">
+            <view class="weui-label">目标完成天数</view>
+          </view>
+          <view class="cell__ft">
+            <input class="weui-input" type="number" name='target_days' value='{{target_days}}' placeholder="输入天数" bindinput="bindVacation" />
+          </view>
+        </view>
+
+        <view class="weui-cell">
+          <view class="weui-cell__hd">
+            <image src="{{'/images/vacation_logo.png'}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">休假天数设置</view>
+          <view class="weui-cell__ft">最多能休假
+            <text>{{vacation}}</text> 天</view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd">
+            <view class="weui-label">休假天数设置</view>
+          </view>
+          <view class="cell__ft">
+            <input class="weui-input" type="number" bindinput='setVacation' value='{{target_delaydays}}' name='target_delaydays' placeholder="输入天数" />
+          </view>
+        </view>
+      </view>
+
+      <!-- 设置目标动机 -->
+      <view class="weui-cells__title">填写目标动机</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="请输入你的目标动机" bindinput='setWordNums' name='target_purpose' value='{{target_purpose}}' style="height: 3.3em" maxlength='50'/>
+            <view class="weui-textarea-counter">{{currentNoteLen}}/{{NoteLen}}</view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 设置目标押金 -->
+      <view class="weui-cells__title">设置目标押金</view>
+      <view class="weui-cells weui-cells_after-title">
+        <radio-group bindchange="radioChange" name='chooseMoney'>
+          <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="value">
+            <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
+
+            <view class="weui-cell__bd">{{item.name}}</view>
+            <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+              <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+            </view>
+          </label>
+          <!-- 设置选择自定义金额时才显示 -->
+          <view class="weui-cell weui-cell_input" wx:if="{{custom}}">
+            <view class="weui-cell__hd">
+              <image src="{{'/images/money_logo.png'}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+            </view>
+            <view class="weui-cell__bd">
+              <view class="weui-label">金额(元)</view>
+            </view>
+            <view class="cell__ft">
+              <input class="weui-input" type="number" bindinput='setMoney' placeholder="输入金额" name='testMoney' value='{{testMoney}}' />
+            </view>
+          </view>
+
+        </radio-group>
+      </view>
+
+      <!-- 条款 -->
+      <checkbox-group bindchange="bindAgreeChange">
+        <label class="weui-agree" for="weuiAgree">
+          <view class="weui-agree__text">
+            <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+            <view class="weui-agree__checkbox-icon">
+              <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+            </view>
+            阅读并同意
+            <navigator url="" class="weui-agree__link">《相关条款》</navigator>
+          </view>
+        </label>
+      </checkbox-group>
+
+      <!-- 确定按钮 -->
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" form-type='submit'>立即开始</button>
+        <button class="weui-btn" type="primary" form-type='reset'>重置</button>
+      </view>
+    </form>
+  </view>
+
+</view>

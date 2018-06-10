@@ -1,0 +1,35 @@
+<!--pages/clock/clock.wxml 打卡内容+图片 -->
+<view class='page-body'>
+  <view class="page-section">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="clock-textarea" placeholder="将你的今日所得分享出来吧！" bindinput='bindContent' value='{{content}}' style="height: 8em" focus='true' />
+
+          <view class='uploader-box'>
+            <view class="weui-uploader__files" id="uploaderFiles">
+              <block wx:for="{{filePaths}}" wx:key="*this">
+                <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                  <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                </view>
+              </block>
+            </view>
+            <!-- 限制图片数量为9张及以下 -->
+            <view class="weui-uploader__input-box" wx:if='{{filePaths.length<9}}'>
+              <view class="weui-uploader__input" bindtap="chooseImage"></view>
+            </view>
+          </view>
+
+        </view>
+
+        <view class="clock-btn" bindtap='submitForm'>
+          <image class="clock_image" src="/images/clock.png"></image>
+        </view>
+        <!-- <navigator class="clock-btn" url='../set/set' hover-class='none'>
+          <image class="clock_image" src="/images/clock.png"></image>
+        </navigator> -->
+
+      </view>
+    </view>
+  </view>
+</view>

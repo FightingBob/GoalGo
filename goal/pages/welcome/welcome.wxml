@@ -1,0 +1,6 @@
+<!--pages/welcome/welcome.wxml-->
+<view>
+  <image src="{{'/images/welcome.png'}}" style="width:100vw; height: 100vh;"></image>
+  <button class="jump" bindtap='goToIndex' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">立即体验</button>
+   <!-- <view class='jump' catchtap='Jump'>跳过{{time}}</view>  -->
+</view>

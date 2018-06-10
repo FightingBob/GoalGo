@@ -1,0 +1,25 @@
+<!--pages/wallet/wallet.wxml-->
+<view class='body'>
+  <view class='page-section'>
+
+    <!-- 错误提示 -->
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">该功能暂未实现</view>
+
+    <view class='balance_info'>
+      <!-- logo -->
+      <view>
+        <image class='icon' src='/images/balance_logo.png' />
+      </view>
+      <view class='balance_title'>我的余额</view>
+      <view class='balance_content'>{{balance}}</view>
+    </view>
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" bindtap="showTopTips">立即提现</button>
+      <button class="weui-btn" type="default" bindtap="showTopTips">余额明细</button>
+    </view>
+    <!-- 页尾 -->
+    <view class="weui-footer weui-footer_fixed-bottom">
+      <view class="weui-footer__text">本服务由微信支付提供</view>
+    </view>
+  </view>
+</view>

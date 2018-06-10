@@ -1,0 +1,42 @@
+/* pages/wallet/wallet.wxss */
+.body {
+  background-color: #fff;
+  padding: 20rpx 0;
+  justify-content: space-between;
+  box-sizing: border-box;
+  flex-direction: column;
+  display: flex;
+}
+
+.balance_info {
+  margin-top: 50rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.icon {
+  height: 200rpx;
+  width: 200rpx;
+}
+
+.balance_title {
+  clear: both;
+  color: #000;
+  font-size: 20px;
+  line-height: 1.2;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  margin-bottom: 5px;
+}
+
+.balance_content {
+  clear: both;
+  color: #353535;
+  font-size: 27px;
+  line-height: 1.2;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}

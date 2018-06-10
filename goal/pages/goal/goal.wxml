@@ -1,0 +1,74 @@
+<!-- pages/goal/goal.wxml   -->
+<view class="navbar">
+  <text wx:for="{{navbar}}" data-index="{{index}}" class="item {{currentIndex==index?'active':''}}" bindtap="navbarTab" wx:key="unique">{{item}}</text>
+</view>
+
+<!-- 进行中 -->
+<view hidden="{{currentIndex!==0}}" class='box'>
+  <block wx:for='{{targets}}' wx:key='targets'>
+
+    <view class='goal-box'>
+      <view class='goal-box_title'>{{item.target_name}}</view>
+
+      <view class='goal-box_progress'>
+        <view class='progress_hd'>进度 1/{{item.target_days}}</view>
+        <view class='progress_bd'>
+          <view class='remain'>
+            <image src="{{'/images/time_logo.png'}}" style="vertical-align: middle;width:15px; height: 15px;"></image>
+            剩余假期{{item.target_delay}}天
+          </view>
+        </view>
+      </view>
+      <view class='progress-bar'>
+        <progress percent="14" stroke-width="3" />
+      </view>
+
+      <view class='goal-box_ft'>
+        <view class='ft_hd'>围观 0 赞 0</view>
+        <view class='ft_bd'>
+          <view class='status' wx:if="{{status}}">今天已完成</view>
+          <button class="weui-btn mini-btn" type="primary" size="mini" wx:else bindtap="SignIn" data-target-id='{{item.target_id}}'>签到</button>
+        </view>
+      </view>
+    </view>
+
+  </block>
+  
+
+</view>
+
+<!-- 成功 -->
+<view hidden="{{currentIndex!==1}}" class='box'>
+  <view class="success_box" wx:for="{{[1,2,3,4]}}" wx:key="*item">
+    <view class="weui-cell">
+      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+        <image src="/images/avatar.jpg" style="width: 50px; height: 50px; display: block" />
+      </view>
+      <view class="weui-cell__bd">
+        <view class="success_box_nickName">linwene</view>
+        <view class='goal_title'>每天看一局海贼王</view>
+      </view>
+      <view class='cell__ft'>
+        <image src="/images/goal_success.png" style="width: 50px; height: 50px; display: block" />
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 失败 -->
+<view hidden="{{currentIndex!==2}}" class='box'>
+  <view class="fail_box" wx:for="{{[1,2]}}" wx:key="*item">
+    <view class="weui-cell">
+      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+        <image src="/images/avatar.jpg" style="width: 50px; height: 50px; display: block" />
+      </view>
+      <view class="weui-cell__bd">
+        <view class="fail_box_nickName">linwene</view>
+        <view class='goal_title'>每天看一局海贼王</view>
+      </view>
+      <view class='cell__ft'>
+        <image src="/images/goal_fail.png" style="width: 50px; height: 50px; display: block" />
+      </view>
+    </view>
+  </view>
+</view>

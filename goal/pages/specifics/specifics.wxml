@@ -1,0 +1,110 @@
+<!--pages/specifics/specifics.wxml-->
+<scroll-view scroll-y="{{isScroll}}">
+  <view class='body'>
+    <view class="page-section">
+
+      <view class='section'>
+
+
+        <view class='goal-content-box'>
+          <view class='goal_title'>{{targetItems.target.target_name}}</view>
+          <view class='goal_motive'>{{targetItems.target.target_purpose}}</view>
+          <view class='goal-box_ft'>
+            <view class='goal-money'>目标挑战金￥{{targetItems.target.target_money}}元</view>
+            <view class='follow-goal'>
+              <button class="weui-btn mini-btn" type="primary" size="mini">
+                <image src="{{'/images/follow_btn.png'}}" style="vertical-align: middle;width:17px; height: 17px;"></image>
+                围观目标</button>
+            </view>
+          </view>
+        </view>
+
+        <!-- 签到的详情 -->
+        <view class='content-box'>
+          <view class='dynamic-box'>
+            <!-- 文字 -->
+            <view class='dynamic_text'>
+              {{targetItems.target_content}}
+            </view>
+            <!-- 图片 -->
+            <view class='dynamic_image'>
+              <block wx:for="{{targetItems.pictures}}" wx:for-item="image" wx:for-index='imgIdx' wx:key="*item">
+                <view class="grid">
+                  <image class="icon" catchtap='previewImage' mode="aspectFill" src="{{image.picture_url}}" data-img-index="{{imgIdx}}" data-imgs="{{targetItems.pictures}}" />
+                </view>
+              </block>
+            </view>
+            <!-- 时间 -->
+            <view class='dynamic_time'>
+              <view>{{targetItems.create_time}}</view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 评论 -->
+        <view class='comments-box'>
+          <view class='comments-box_title'>评论 {{length}}</view>
+
+          <block wx:for="{{comments}}" wx:key="*item">
+            <view class='comment_content-box' hover-class='weui-cell_active'>
+              <view class='comment_content-box_l'>
+                <image src="{{item.user_icon}}" style="width: 40px; height: 40px; display: block;border-radius:20px;" />
+              </view>
+              <view class='comment_content-box_r'>
+                <!-- 昵称 -->
+                <view class="comment_content-box_nickName">{{item.user_name}}</view>
+                <!-- 目标标题 -->
+                <view class='weui-media-box__desc'>{{item.create_time}}</view>
+                <!-- 文字 -->
+                <view class='comment_content-box_text'>
+                  {{item.comment_content}}
+                </view>
+              </view>
+            </view>
+          </block>
+
+        </view>
+
+        <!-- 顶部信息区域 -->
+        <view class="info_box">
+          <view class="weui-cell">
+            <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+              <image src="{{targetItems.user_icon}}" style="width: 50px; height: 50px; display: block;border-radius:25px;" />
+            </view>
+            <view class="weui-cell__bd">
+              <view class="info_box_nickName">{{targetItems.user_name}}</view>
+              <view class='weui-media-box__desc'>居住地：广州</view>
+            </view>
+            <view class='cell__ft'>
+              <view class='goal_status'>[进行中]</view>
+            </view>
+          </view>
+        </view>
+        <!-- 悬浮评论点赞盒子 -->
+      <view class='comment-box' wx:if="{{CommentBox_status}}">
+        <navigator url='' class="comment-bar_form" hover-class="none">
+          <view class="comment-bar-box">
+            <image class="comment-icon" src="{{'/images/message.png'}}"></image>
+            <input type="text" class="comment-bar_input" value='评论' disabled='disabled' catchtap='showInputBox' />
+          </view>
+        </navigator>
+        <view class='like-box'>
+          <image src="{{'/images/like_fill.png'}}" class='like-btn' catchtap="toLike" wx:if="{{like_status}}"></image>
+          <image src="{{'/images/like.png'}}" class='like-btn' catchtap="toLike" wx:else></image>
+        </view>
+      </view>
+
+      <!-- 评论框 -->
+      <view class='model' wx:if="{{inputBoxShow}}">
+        <!-- invisible_model view 用于点击隐藏model评论框 -->
+        <view class='invisible_model' catchtap='invisible'></view>
+        <view class='input-box'>
+          <textarea class="textarea" placeholder="请输入你的看法" cursor-spacing="{{65}}" bindinput='setComment' show-confirm-bar="{{false}}" adjust-position="{{true}}" auto-focus="{{true}}" />
+          <text class='send' bindtap='sendComment'>发送</text>
+        </view>
+      </view>
+
+      </view>
+    </view>
+  </view>
+</scroll-view>

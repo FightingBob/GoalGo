@@ -1,0 +1,75 @@
+/* pages/discover/discover.wxss */
+Page {
+  background-color: #f8f8f8;
+  height: 100%;
+}
+
+body {
+  background-color: #f8f8f8;
+  padding: 0;
+  justify-content: space-between;
+  box-sizing: border-box;
+  flex-direction: column;
+  display: flex;
+  margin-top: 0;
+  padding-top:0;
+}
+
+.like_box {
+  position: relative;
+  background-color: #fff;
+  line-height: 1.41176471;
+  font-size: 17px;
+  margin-top: 0;
+}
+
+.like_box:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1rpx solid #e5e5e5;
+  color: #e5e5e5;
+}
+
+.goal_title {
+  color: #000;
+  font-size: 15px;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  margin-bottom: 5px;
+}
+
+.goal_content {
+  color: #999;
+  font-size: 15px;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.cell__ft {
+  height: 70rpx;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 5px;
+  padding: 0;
+}
+
+.like-box_time {
+  color: #999;
+  font-size: 10px;
+  line-height: 1.41176471;
+  display: -webkit-box;
+  padding-top: 0;
+  margin-top: 0;
+}

@@ -1,0 +1,4 @@
+.cell__ft {
+  text-align: right;
+  color: #000;
+}

@@ -1,0 +1,22 @@
+<!--pages/welcome1/welcome1.wxml-->
+<!--start.wxml-->
+<view class="container">
+  <view class="remind-box" wx:if="{{remind}}">
+    <image class="remind-img" src="/images/loading.gif"></image>
+  </view>
+  <block wx:else>
+     <image class="title" src="/images/title1.png" mode='aspectFill'></image> 
+    <view class="content">
+      <view class="hd" style="transform:rotateZ({{angle}}deg);">
+        <!-- <open-data type="userAvatarUrl" class='logo'></open-data> -->
+        <image class="wave" src="/images/wave.png" mode="aspectFill"></image>
+        <image class="wave wave-bg" src="/images/wave.png" mode="aspectFill"></image>
+      </view>
+      <view class="bd">
+         <image class="smalltitle" src="/images/confirm-word1.png"></image>
+        <button class="confirm-btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">立即体验</button>
+        <text class="copyright">© 2018 爱学习的小南</text>
+      </view>
+    </view>
+  </block>
+</view>

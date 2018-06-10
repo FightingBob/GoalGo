@@ -1,0 +1,59 @@
+{
+  "pages": [
+    
+    "pages/welcome1/welcome1",
+    "pages/index/index",
+    "pages/welcome/welcome",
+    "pages/logs/logs",
+    "pages/set/set",
+    "pages/me/me",
+    "pages/discover/discover",
+    "pages/wallet/wallet",
+    "pages/watch/watch",
+    "pages/goal/goal",
+    "pages/detail/detail",
+    "pages/onlook/onlook",
+    "pages/search/search",
+    "pages/clock/clock",
+    "pages/specifics/specifics"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#353535",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f8f8f8"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/index.png",
+        "selectedIconPath": "/images/index_fill.png"
+      },
+      {
+        "pagePath": "pages/onlook/onlook",
+        "text": "围观",
+        "iconPath": "/images/discover.png",
+        "selectedIconPath": "/images/discover_fill.png"
+      },
+      {
+        "pagePath": "pages/discover/discover",
+        "text": "消息",
+        "iconPath": "/images/message.png",
+        "selectedIconPath": "/images/message_fill.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我",
+        "iconPath": "/images/mine.png",
+        "selectedIconPath": "/images/mine_fill.png"
+      }
+    ],
+    "selectedColor": "#09bb07",
+    "color": "#888",
+    "backgroundColor": "#fff"
+  }
+}

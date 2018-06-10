@@ -1,0 +1,59 @@
+<!--pages/discover/discover.wxml-->
+<view class='body'>
+  <view class="page-section">
+
+    <!-- 错误提示 -->
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">该功能暂未实现</view>
+
+    <!-- 点赞 -->
+    <view class="like_box">
+      <view class="weui-cell">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+          <image src="/images/like-logo.png" style="width: 40px; height: 40px; display: block" />
+          <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class='goal_title'>点赞详情</view>
+          <view style="font-size: 13px;color: #888888;" class='goal_content'>[唐吉可德]：赞</view>
+        </view>
+        <view class='cell__ft'>
+          <view class='.like-box_time'>15:06</view>
+        </view>
+      </view>
+    </view>
+    <!-- 评论 -->
+    <view class="like_box">
+      <view class="weui-cell">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+          <image src="/images/comment.png" style="width: 40px; height: 40px; display: block" />
+          <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">1</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class='goal_title'>评论详情</view>
+          <view style="font-size: 13px;color: #888888;" class='goal_content'>[唐吉可德]：加油</view>
+        </view>
+        <view class='cell__ft'>
+          <view class='.like-box_time'>15:06</view>
+        </view>
+      </view>
+    </view>
+    <!-- 服务通知 -->
+    <view class="like_box">
+      <view class="weui-cell">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+          <image src="/images/notice.png" style="width: 40px; height: 40px; display: block" />
+          <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">1</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class='goal_title'>服务通知</view>
+          <view style="font-size: 13px;color: #888888;" class='goal_content'>提现成功</view>
+        </view>
+        <view class='cell__ft'>
+          <view class='.like-box_time'>15:06</view>
+        </view>
+      </view>
+    </view>
+
+
+  </view>
+</view>

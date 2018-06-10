@@ -1,0 +1,78 @@
+<!--pages/detail/detail.wxml-->
+<view class='body'>
+  <view class="page-section">
+    <view class='section'>
+      <!-- 顶部信息区域 -->
+      <view class="info_box">
+        <view class="weui-cell">
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="/images/avatar.jpg" style="width: 50px; height: 50px; display: block; border-radius:25px;" />
+          </view>
+          <view class="weui-cell__bd">
+            <view class="info_box_nickName">linwene</view>
+            <view class='goal_title'>每天看一局海贼王</view>
+          </view>
+          <view class='cell__ft'>
+            <view class='goal_status'>[进行中]</view>
+          </view>
+        </view>
+        <view class='goal_gain'>
+          <image src="{{'/images/money_logo.png'}}" style="vertical-align: middle;width:15px; height: 15px;"></image> 挑战金: ￥188
+          <image src="{{'/images/time_logo.png'}}" style="vertical-align: middle;width:15px; height: 15px;"></image> 坚持天数: 1/7
+          <image src="{{'/images/group.png'}}" style="vertical-align: middle;width:15px; height: 15px;"></image> 围观:6000
+        </view>
+      </view>
+
+      <!-- 动态 -->
+      <view class='content-box'>
+        <view class='dynamic-box' wx:for="{{[1,2,3]}}" wx:key="*item">
+
+          <view class='user-box'>
+            <view class='user-box_l'>
+              <image src="/images/avatar.jpg" style="width: 40px; height: 40px; display: block;" />
+            </view>
+            <view class='user-box_r'>
+              <!-- 昵称 -->
+              <view class="user-box_nickName">linwene</view>
+              <!-- 目标标题 -->
+              <view class='user-box_time'>
+                04月01日 21:58 (第7天签到)
+              </view>
+            </view>
+            <view class='user-box_ft'>
+              <view class='like-view'>
+                <image src="{{'/images/like_fill.png'}}" class='like-btn' catchtap="toLike" wx:if="{{like_status}}"></image>
+                <image src="{{'/images/like.png'}}" class='like-btn' catchtap="toLike" wx:else></image>
+                20
+              </view>
+              <view class=''>
+                <image src="{{'/images/message.png'}}" class='message-btn'></image>
+                17
+              </view>
+            </view>
+          </view>
+
+          <!-- 文字 -->
+          <view class='dynamic_text'>
+            如果死了就没有未来了。如果不拼命，同样无法开创未来。
+          </view>
+          <!-- 图片 -->
+          <view class='dynamic_image'>
+            <block wx:for="{{imgalist}}" wx:for-item="image" wx:key="*item">
+              <view class="grid">
+                <image class="icon" bindtap='previewImage' mode="aspectFill" src="{{image}}" data-src="{{image}}" />
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+
+      <!-- 悬浮点击围观-->
+      <view class='look-switch-box'>
+        围观该目标
+        <switch type="switch" checked="{{status}}" class='look-switch' />
+      </view>
+
+    </view>
+  </view>
+</view>

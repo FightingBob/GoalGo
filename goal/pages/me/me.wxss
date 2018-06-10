@@ -1,0 +1,59 @@
+/* pages/me/me.wxss */
+Page {
+  background-color: #f8f8f8;
+  height: 100%;
+}
+
+.follow-box {
+  display: flex;
+  position: relative;
+  margin-top: 0;
+  background-color: #fff;
+  line-height: 1.41176471;
+  font-size: 14px;
+  align-items: center;
+  padding: 12rpx;
+  color: #888;
+}
+
+.follow-box:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1rpx solid #d9d9d9;
+  color: #d9d9d9;
+}
+
+.follow-box:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1rpx solid #d9d9d9;
+  color: #d9d9d9;
+}
+
+.follow-content {
+  border-right: 1rpx solid #d9d9d9;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  text-align: center;
+}
+
+.fans-content {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  text-align: center;
+}
+
+.follow_text {
+  font-size: 14px;
+  color: #000;
+}
